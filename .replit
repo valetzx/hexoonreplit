@@ -1,0 +1,26 @@
+# DO NOT CHANGE RUN COMMAND HERE
+# To change the run command either:
+# 1) change the run script in package.json
+# 2) replace npm run-script run in run.nix with your command
+
+run = "npm run dev"
+entrypoint = "README.md"
+
+language = "nodejs"
+
+[nix]
+channel="stable-21_11"
+
+[packager]
+language = "nodejs"
+
+[packager.features]
+packageSearch = true
+guessImports = true
+
+[languages.nodejs]
+pattern = "**/*.js"
+syntax = "nodejs"
+
+[languages.nodejs.languageServer]
+start = [ "typescript-language-server", "--stdio" ]
